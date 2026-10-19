@@ -1,0 +1,111 @@
+﻿<Window x:Class="GestiCoop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GestiCoop - Gestion des stages"
+        Height="650" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="#F3F5F9">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- MENU BLEU -->
+        <Border Grid.Column="0" Background="#294D91">
+            <DockPanel>
+
+                <StackPanel DockPanel.Dock="Bottom"
+                            Margin="20">
+                    <TextBlock Text="L . Younes"
+                               Foreground="White"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="Etudiant"
+                               Foreground="#CCD8F0"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="GestiCoop"
+                               FontSize="25"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               Margin="20,25,10,30"/>
+
+                    <TextBlock Text="PRINCIPAL"
+                               Foreground="#AFC5EC"
+                               Margin="20,0,0,15"/>
+
+                    <Button Content="Tableau de bord"
+                            Tag="Tableau de bord"
+                            Click="Navigation_Click"/>
+
+                    <Button Content="Offres de stage"
+                            Tag="Offres de stage"
+                            Click="Navigation_Click"/>
+
+                    <Button Content="Étudiants"
+                            Tag="Étudiants"
+                            Click="Navigation_Click"/>
+
+                    <Button Content="Candidatures"
+                            Tag="Candidatures"
+                            Click="Navigation_Click"/>
+
+                    <Button Content="Entreprises"
+                            Tag="Entreprises"
+                            Click="Navigation_Click"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- CONTENU PRINCIPAL -->
+        <Grid Grid.Column="1" Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="TitrePage"
+                       Text="Tableau de bord"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       Foreground="#26354A"
+                       Margin="0,0,0,25"/>
+
+            <Border Grid.Row="1"
+                    Background="White"
+                    CornerRadius="8"
+                    Padding="20">
+                <ContentControl x:Name="ContenuPage"/>
+            </Border>
+
+            <TextBlock Grid.Row="2"
+                       Text="● Connecté : L. Younes"
+                       Foreground="Green"
+                       Margin="0,15,0,0"/>
+        </Grid>
+    </Grid>
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background"
+                    Value="Transparent"/>
+            <Setter Property="Foreground"
+                    Value="White"/>
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+            <Setter Property="Height"
+                    Value="48"/>
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Left"/>
+            <Setter Property="Padding"
+                    Value="22,0"/>
+            <Setter Property="FontSize"
+                    Value="15"/>
+            <Setter Property="Cursor"
+                    Value="Hand"/>
+        </Style>
+    </Window.Resources>
+</Window>

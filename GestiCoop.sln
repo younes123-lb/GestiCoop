@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestiCoop", "GestiCoop.csproj", "{1932B82F-6F6A-4631-87DF-6D7C725C693B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1932B82F-6F6A-4631-87DF-6D7C725C693B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1932B82F-6F6A-4631-87DF-6D7C725C693B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1932B82F-6F6A-4631-87DF-6D7C725C693B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1932B82F-6F6A-4631-87DF-6D7C725C693B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {222DBD67-EF4C-47AE-9223-DD3E4ADB1BE8}
+	EndGlobalSection
+EndGlobal

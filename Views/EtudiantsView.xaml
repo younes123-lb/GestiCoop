@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="GestiCoop.Views.EtudiantsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="White">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+      
+
+        <!-- Titre et bouton Ajouter -->
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+               Text="Liste des étudiants"
+               FontSize="22"
+               FontWeight="Bold"
+               Foreground="#26354A"
+               VerticalAlignment="Center"/>
+
+            <Button Grid.Column="1"
+            Content="+ Ajouter un étudiant"
+            Width="190"
+            Height="38"
+            Background="#E85B50"
+            Foreground="White"
+            BorderThickness="0"
+            Click="Ajouter_Click"/>
+        </Grid>
+
+
+        <!-- Recherche, filtre et ajout -->
+        <Grid Grid.Row="1" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="170"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="txtRecherche"
+                     Grid.Column="0"
+                     Height="38"
+                     Margin="0,0,10,0"
+                     Padding="10"
+                     VerticalContentAlignment="Center"
+                     ToolTip="Rechercher un étudiant"
+                     TextChanged="txtRecherche_TextChanged"/>
+
+            <ComboBox x:Name="cboProgramme"
+                      Grid.Column="1"
+                      Height="38"
+                      Margin="0,0,10,0"
+                      SelectionChanged="cboProgramme_SelectionChanged">
+                <ComboBoxItem Content="Tous les programmes"
+                              IsSelected="True"/>
+                <ComboBoxItem Content="Informatique"/>
+                <ComboBoxItem Content="Génie logiciel"/>
+                <ComboBoxItem Content="Cybersécurité"/>
+            </ComboBox>
+
+        </Grid>
+
+        <!-- Tableau -->
+        <DataGrid x:Name="dgEtudiants"
+                  Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  RowHeight="45"
+                  HeadersVisibility="Column"
+                  GridLinesVisibility="Horizontal">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="NOM"
+                                    Binding="{Binding Nom}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="PRÉNOM"
+                                    Binding="{Binding Prenom}"
+                                    Width="*"/>
+
+              
+
+                <DataGridTemplateColumn Header="PROGRAMME"
+                        Width="1.4*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="12"
+                    Padding="10,5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background"
+                                Value="#E3EEFF"/>
+
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Programme}"
+                                         Value="Génie logiciel">
+                                                <Setter Property="Background"
+                                        Value="#DFF3E5"/>
+                                            </DataTrigger>
+
+                                            <DataTrigger Binding="{Binding Programme}"
+                                         Value="Cybersécurité">
+                                                <Setter Property="Background"
+                                        Value="#FFF0C7"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <TextBlock Text="{Binding Programme}"
+                           FontSize="13">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground"
+                                    Value="#2459A6"/>
+
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Programme}"
+                                             Value="Génie logiciel">
+                                                    <Setter Property="Foreground"
+                                            Value="#287846"/>
+                                                </DataTrigger>
+
+                                                <DataTrigger Binding="{Binding Programme}"
+                                             Value="Cybersécurité">
+                                                    <Setter Property="Foreground"
+                                            Value="#92620C"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTextColumn Header="COURRIEL"
+                                    Binding="{Binding Courriel}"
+                                    Width="2*"/>
+
+                <DataGridTemplateColumn Header="ACTIONS"
+                                        Width="160">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Modifier"
+                                        Foreground="#2864A0"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Padding="5"
+                                        Click="Modifier_Click"/>
+
+                                <Button Content="Supprimer"
+                                        Foreground="#D9534F"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Padding="5"
+                                        Click="Supprimer_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
