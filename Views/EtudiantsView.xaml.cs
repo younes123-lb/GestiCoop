@@ -131,8 +131,9 @@ namespace GestiCoop.Views
         private void Ajouter_Click(
             object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-                "Le formulaire d'ajout sera créé ensuite.");
+            AjouterEtudiantWindow fenetre = new AjouterEtudiantWindow();
+            fenetre.Owner = System.Windows.Application.Current.MainWindow;
+            fenetre.ShowDialog();
         }
 
         private void Modifier_Click(
